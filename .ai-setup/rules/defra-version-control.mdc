@@ -1,0 +1,242 @@
+---
+trigger: model_decision
+description: DEFRA Version Control Standards - Git, branching, and release management practices
+globs:
+alwaysApply: false
+---
+# DEFRA Version Control Standards
+
+## 🔄 REPOSITORY MANAGEMENT
+
+### Repository Standards
+- ALWAYS use centrally managed Git repositories
+- ALWAYS host in Defra GitHub organization
+- ALLOW mirrors in Azure DevOps or GitLab
+- ALWAYS maintain single source of truth
+- NEVER create duplicate authoritative repos
+- ALWAYS document repository purpose
+
+### Access Control
+- ALWAYS implement least privilege access
+- ALWAYS use team-based permissions
+- ALWAYS require 2FA for all users
+- ALWAYS audit access regularly
+- NEVER share credentials
+- ALWAYS remove access when no longer needed
+
+## 🌲 BRANCHING STRATEGY
+
+### Branch Protection
+- ALWAYS protect master/main branch
+- ALWAYS require pull request reviews
+- ALWAYS require status checks to pass
+- ALWAYS enforce up-to-date branches
+- NEVER allow force pushes to main
+- ALWAYS maintain branch history
+
+### Branch Naming
+- ALWAYS use descriptive branch names
+- ALWAYS prefix with type:
+  - feature/ for new features
+  - bugfix/ for bug fixes
+  - hotfix/ for urgent fixes
+  - release/ for release preparation
+- ALWAYS include ticket/issue number
+- NEVER use personal identifiers
+
+### Development Flow
+- ALWAYS create feature branches from main
+- ALWAYS keep branches short-lived
+- ALWAYS rebase or merge regularly
+- ALWAYS delete merged branches
+- NEVER commit directly to main
+- ALWAYS resolve conflicts properly
+
+## 📦 SEMANTIC VERSIONING
+
+### Version Format
+- ALWAYS use MAJOR.MINOR.PATCH format
+- INCREMENT MAJOR for breaking changes
+- INCREMENT MINOR for new features
+- INCREMENT PATCH for bug fixes
+- ALWAYS start at 0.1.0 for new projects
+- ALWAYS document version changes
+
+### Version Tagging
+- ALWAYS tag releases before deployment
+- ALWAYS use annotated tags
+- ALWAYS include version in tag name
+- ALWAYS add release notes to tags
+- NEVER modify tagged releases
+- ALWAYS sign tags when possible
+
+### Version Documentation
+- ALWAYS maintain CHANGELOG.md
+- ALWAYS include version in source code
+- ALWAYS document breaking changes
+- ALWAYS list new features
+- ALWAYS note bug fixes
+- ALWAYS date releases
+
+## 💾 COMMIT STANDARDS
+
+### Commit Messages
+- ALWAYS write clear, descriptive messages
+- ALWAYS use present tense
+- ALWAYS explain why, not just what
+- FOLLOW conventional commits format:
+  - feat: new feature
+  - fix: bug fix
+  - docs: documentation changes
+  - style: formatting changes
+  - refactor: code restructuring
+  - test: test changes
+  - chore: maintenance tasks
+
+### Commit Best Practices
+- ALWAYS make atomic commits
+- ALWAYS commit related changes together
+- NEVER mix features in one commit
+- ALWAYS review before committing
+- NEVER commit broken code
+- ALWAYS include issue references
+
+## 🔀 PULL REQUEST STANDARDS
+
+### PR Requirements
+- ALWAYS provide clear description
+- ALWAYS link related issues
+- ALWAYS include test evidence
+- ALWAYS update documentation
+- ALWAYS request appropriate reviewers
+- NEVER merge own PRs (except emergencies)
+
+### PR Review Process
+- ALWAYS review code thoroughly
+- ALWAYS test changes locally
+- ALWAYS check for security issues
+- ALWAYS verify tests pass
+- ALWAYS provide constructive feedback
+- ALWAYS approve explicitly
+
+### PR Checklist
+Before merging:
+- ✅ All tests passing
+- ✅ Code review approved
+- ✅ Documentation updated
+- ✅ No merge conflicts
+- ✅ Security scan passed
+- ✅ Performance acceptable
+
+## 🚀 RELEASE MANAGEMENT
+
+### Release Process
+- ALWAYS create release branch
+- ALWAYS stabilize before release
+- ALWAYS tag release version
+- ALWAYS document release notes
+- ALWAYS test deployment process
+- NEVER release untested code
+
+### Release Documentation
+Required for each release:
+- Version number
+- Release date
+- New features list
+- Bug fixes list
+- Breaking changes
+- Migration instructions
+- Known issues
+
+### Hotfix Process
+- ALWAYS branch from production tag
+- ALWAYS fix critical issues only
+- ALWAYS test thoroughly
+- ALWAYS merge back to main
+- ALWAYS update version appropriately
+- ALWAYS document hotfix reason
+
+## 🔐 SECURITY PRACTICES
+
+### Credential Management
+- NEVER commit secrets or passwords
+- NEVER commit API keys or tokens
+- ALWAYS use .gitignore properly
+- ALWAYS scan for secrets regularly
+- ALWAYS rotate compromised credentials
+- ALWAYS use environment variables
+
+### Security Scanning
+- ALWAYS scan commits for secrets
+- ALWAYS check dependencies
+- ALWAYS review security alerts
+- ALWAYS fix vulnerabilities promptly
+- NEVER ignore security warnings
+- ALWAYS document security decisions
+
+## 📊 GIT WORKFLOW
+
+### Daily Workflow
+- ALWAYS pull latest changes
+- ALWAYS work on feature branch
+- ALWAYS commit frequently
+- ALWAYS push to remote regularly
+- ALWAYS create PR when ready
+- ALWAYS clean up after merge
+
+### Conflict Resolution
+- ALWAYS communicate with team
+- ALWAYS understand both changes
+- ALWAYS test after resolution
+- ALWAYS preserve functionality
+- NEVER blindly accept changes
+- ALWAYS document decisions
+
+## 🗂️ REPOSITORY HYGIENE
+
+### Maintenance Tasks
+- ALWAYS keep README updated
+- ALWAYS maintain .gitignore
+- ALWAYS prune old branches
+- ALWAYS archive obsolete repos
+- ALWAYS update dependencies
+- ALWAYS review access permissions
+
+### File Management
+- ALWAYS use consistent structure
+- ALWAYS follow naming conventions
+- NEVER commit generated files
+- NEVER commit binary files (unless necessary)
+- ALWAYS use Git LFS for large files
+- ALWAYS maintain clean history
+
+## ✅ QUALITY STANDARDS
+
+### Code Review Metrics
+- Review turnaround time
+- Comments per review
+- Approval rate
+- Defects found in review
+- Time to merge
+
+### Repository Health
+- Branch protection enabled
+- Required reviews configured
+- CI/CD integrated
+- Security scanning active
+- Documentation current
+- Active maintenance
+
+## 🚫 VERSION CONTROL ANTI-PATTERNS
+
+Never Do:
+- Commit directly to main
+- Force push to shared branches
+- Commit sensitive information
+- Create huge commits
+- Use unclear commit messages
+- Ignore merge conflicts
+- Keep stale branches
+- Skip code reviews
+- Modify Git history
+- Share repository credentials

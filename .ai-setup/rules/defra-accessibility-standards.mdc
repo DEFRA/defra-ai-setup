@@ -1,0 +1,245 @@
+---
+trigger: always_on
+description: DEFRA Accessibility Standards - WCAG 2.1 compliance and inclusive design practices
+globs:
+alwaysApply: true
+---
+# DEFRA Accessibility Standards
+
+## ♿ WCAG 2.1 COMPLIANCE
+
+### Compliance Requirements
+- ALWAYS meet WCAG 2.1 Level A (minimum)
+- ALWAYS meet WCAG 2.1 Level AA (required)
+- STRIVE for Level AAA where possible
+- ALWAYS test with real users
+- ALWAYS document accessibility features
+- NEVER compromise on accessibility
+
+### Four Principles of Accessibility
+1. **Perceivable**: Information must be presentable in ways users can perceive
+2. **Operable**: Interface components must be operable
+3. **Understandable**: Information and UI operation must be understandable
+4. **Robust**: Content must be robust enough for various assistive technologies
+
+## 🎨 VISUAL DESIGN
+
+### Color and Contrast
+- ALWAYS maintain WCAG AA contrast ratios:
+  - Normal text: 4.5:1 minimum
+  - Large text: 3:1 minimum
+  - UI components: 3:1 minimum
+- NEVER rely on color alone to convey information
+- ALWAYS provide additional visual cues
+- ALWAYS test with color blindness simulators
+- ALWAYS support high contrast modes
+
+### Typography
+- ALWAYS use readable fonts
+- MINIMUM font size: 14px (desktop), 16px (mobile)
+- ALWAYS allow text resizing up to 200%
+- ALWAYS maintain readable line spacing (1.5x)
+- ALWAYS limit line length (80 characters max)
+- NEVER use justified text alignment
+
+## ⌨️ KEYBOARD NAVIGATION
+
+### Keyboard Support
+- ALWAYS ensure full keyboard accessibility
+- ALWAYS provide visible focus indicators
+- ALWAYS implement logical tab order
+- ALWAYS support keyboard shortcuts
+- NEVER create keyboard traps
+- ALWAYS test without a mouse
+
+### Focus Management
+- ALWAYS show clear focus indicators
+- ALWAYS manage focus programmatically when needed
+- ALWAYS return focus after modal closes
+- ALWAYS skip to main content link
+- NEVER remove focus outlines without replacement
+- ALWAYS test tab order thoroughly
+
+## 🖼️ IMAGES & MEDIA
+
+### Alternative Text
+- ALWAYS provide alt text for informative images
+- ALWAYS use empty alt="" for decorative images
+- ALWAYS describe image purpose, not appearance
+- ALWAYS include text in images as alt text
+- NEVER use "image of" or "picture of"
+- ALWAYS make complex images accessible
+
+### Multimedia Content
+- ALWAYS provide captions for videos
+- ALWAYS include audio descriptions
+- ALWAYS offer transcripts
+- ALWAYS provide controls for auto-playing content
+- NEVER auto-play with sound
+- ALWAYS allow pause/stop/hide for moving content
+
+## 📋 FORMS & INPUTS
+
+### Form Accessibility
+- ALWAYS associate labels with inputs
+- ALWAYS group related fields
+- ALWAYS provide clear instructions
+- ALWAYS indicate required fields
+- ALWAYS show inline error messages
+- NEVER rely on placeholder text alone
+
+### Error Handling
+- ALWAYS identify errors clearly
+- ALWAYS describe how to fix errors
+- ALWAYS preserve user input
+- ALWAYS announce errors to screen readers
+- NEVER use color alone for errors
+- ALWAYS validate accessibly
+
+## 🔊 SCREEN READER SUPPORT
+
+### ARIA Implementation
+- ALWAYS use semantic HTML first
+- ONLY use ARIA when necessary
+- ALWAYS follow ARIA authoring practices
+- ALWAYS test with screen readers
+- NEVER change native semantics unnecessarily
+- ALWAYS ensure ARIA labels are meaningful
+
+### Screen Reader Testing
+Test with:
+- NVDA (Windows)
+- JAWS (Windows)
+- VoiceOver (macOS/iOS)
+- TalkBack (Android)
+- Always announce important changes
+- Never create invisible content barriers
+
+## 📱 RESPONSIVE ACCESSIBILITY
+
+### Mobile Accessibility
+- ALWAYS ensure touch targets are 44x44px minimum
+- ALWAYS provide adequate spacing between targets
+- ALWAYS support both orientations
+- ALWAYS test with mobile screen readers
+- NEVER disable zoom
+- ALWAYS support gesture alternatives
+
+### Responsive Design
+- ALWAYS maintain accessibility across breakpoints
+- ALWAYS test at different zoom levels
+- ALWAYS ensure content reflows properly
+- ALWAYS maintain functionality at all sizes
+- NEVER hide essential content
+- ALWAYS provide mobile-friendly alternatives
+
+## 🧪 ACCESSIBILITY TESTING
+
+### Testing Methods
+- **Automated Testing**: Use tools like axe, WAVE, Pa11y
+- **Manual Testing**: Keyboard navigation, screen readers
+- **User Testing**: Include users with disabilities
+- **Code Review**: Check for accessibility issues
+- **Browser Testing**: Test across different browsers
+- **Device Testing**: Test on various devices
+
+### Testing Checklist
+- ✅ Keyboard navigation works
+- ✅ Screen reader compatible
+- ✅ Color contrast passes
+- ✅ Focus indicators visible
+- ✅ Forms are accessible
+- ✅ Images have alt text
+- ✅ Videos have captions
+- ✅ Content is understandable
+
+## 📄 CONTENT ACCESSIBILITY
+
+### Writing for Accessibility
+- ALWAYS use clear, simple language
+- ALWAYS use descriptive headings
+- ALWAYS structure content logically
+- ALWAYS define abbreviations
+- ALWAYS provide context for links
+- NEVER use directional language alone
+
+### Document Structure
+- ALWAYS use proper heading hierarchy
+- ALWAYS use lists for grouped items
+- ALWAYS use tables for tabular data only
+- ALWAYS provide table headers
+- ALWAYS use landmarks appropriately
+- NEVER skip heading levels
+
+## 🎯 SPECIFIC REQUIREMENTS
+
+### Navigation
+- ALWAYS provide multiple ways to find content
+- ALWAYS show current location
+- ALWAYS use consistent navigation
+- ALWAYS provide breadcrumbs
+- ALWAYS include search functionality
+- NEVER change navigation unexpectedly
+
+### Interactive Elements
+- ALWAYS make buttons look clickable
+- ALWAYS provide hover and focus states
+- ALWAYS ensure adequate click areas
+- ALWAYS provide loading indicators
+- ALWAYS announce state changes
+- NEVER use hover-only interactions
+
+## 📊 COMPLIANCE REPORTING
+
+### Accessibility Statement
+ALWAYS include:
+- Compliance status
+- Non-compliant areas
+- Accessibility features
+- Known issues
+- Contact information
+- Feedback mechanism
+- Testing methodology
+- Last updated date
+
+### Documentation Requirements
+- ALWAYS maintain accessibility documentation
+- ALWAYS document testing results
+- ALWAYS track accessibility issues
+- ALWAYS plan remediation
+- ALWAYS report compliance status
+- ALWAYS update regularly
+
+## ⚡ PERFORMANCE & ACCESSIBILITY
+
+### Performance Considerations
+- ALWAYS optimize for assistive technologies
+- ALWAYS minimize cognitive load
+- ALWAYS reduce motion for preferences
+- ALWAYS provide text alternatives
+- NEVER sacrifice accessibility for performance
+- ALWAYS test with slower connections
+
+## ✅ QUALITY ASSURANCE
+
+### Accessibility Reviews
+- ✅ Design review for accessibility
+- ✅ Code review includes accessibility
+- ✅ Automated testing in CI/CD
+- ✅ Manual testing completed
+- ✅ User testing with disabilities
+- ✅ Accessibility statement updated
+
+## 🚫 ACCESSIBILITY ANTI-PATTERNS
+
+Never:
+- Ignore accessibility requirements
+- Test only with automated tools
+- Add ARIA without understanding
+- Remove focus indicators
+- Use placeholder as label
+- Create keyboard traps
+- Rely on color alone
+- Auto-play media with sound
+- Disable zoom
+- Assume accessibility is "done"

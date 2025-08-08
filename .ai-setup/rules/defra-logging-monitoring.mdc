@@ -1,0 +1,282 @@
+---
+trigger: model_decision
+description: DEFRA Logging & Monitoring Standards - Observability, logging, and monitoring practices
+globs:
+alwaysApply: false
+---
+# DEFRA Logging & Monitoring Standards
+
+## 📝 LOGGING FUNDAMENTALS
+
+### Core Logging Principles
+- ALWAYS log useful information only
+- NEVER log sensitive or personal data
+- ALWAYS use structured logging
+- ALWAYS include context in logs
+- ALWAYS configure third-party library logging
+- NEVER ignore logging in production
+
+### Log Levels by Environment
+- **Development**: Debug, Info, Warning, Error
+- **Testing/Staging**: Warning, Error
+- **Production**: Error, Critical warnings only
+- ALWAYS respect environment log levels
+- NEVER use debug logging in production
+- ALWAYS filter logs appropriately
+
+## 🔐 SECURITY LOGGING
+
+### Data Protection
+NEVER log:
+- Personally Identifiable Information (PII)
+- Names, addresses, phone numbers
+- Email addresses (mask if needed)
+- Passwords or authentication tokens
+- API keys or secrets
+- Credit card or financial data
+- Health or medical information
+- National Insurance numbers
+
+### Security Events
+ALWAYS log:
+- Authentication attempts (success/failure)
+- Authorization failures
+- Access control changes
+- Configuration modifications
+- Administrative actions
+- Suspicious activities
+- Security exceptions
+- Data access patterns
+
+## 📊 STRUCTURED LOGGING
+
+### Log Format Standards
+- ALWAYS use key-value pairs
+- FOLLOW Elastic Common Schema (ECS) where applicable
+- ALWAYS include standard fields:
+  ```json
+  {
+    "timestamp": "2024-01-01T12:00:00Z",
+    "level": "ERROR",
+    "service": "service-name",
+    "environment": "production",
+    "correlation_id": "uuid",
+    "message": "descriptive message",
+    "user_id": "hashed-id",
+    "request_id": "request-uuid"
+  }
+  ```
+
+### Contextual Information
+ALWAYS include:
+- Timestamp (ISO 8601 format)
+- Log level
+- Service/application name
+- Environment (dev/test/prod)
+- Correlation ID for tracing
+- Request ID for HTTP requests
+- User ID (hashed/anonymized)
+- Error stack traces when applicable
+
+## 🎯 MONITORING REQUIREMENTS
+
+### Application Monitoring
+- ALWAYS monitor application health
+- ALWAYS track response times
+- ALWAYS measure error rates
+- ALWAYS monitor resource usage
+- ALWAYS track business metrics
+- ALWAYS set up alerting thresholds
+
+### Infrastructure Monitoring
+- ALWAYS monitor CPU utilization
+- ALWAYS track memory usage
+- ALWAYS monitor disk space
+- ALWAYS track network metrics
+- ALWAYS monitor container health
+- ALWAYS watch database performance
+
+### Synthetic Monitoring
+- ALWAYS implement uptime checks
+- ALWAYS monitor critical user journeys
+- ALWAYS test from multiple locations
+- ALWAYS verify SSL certificates
+- ALWAYS check DNS resolution
+- ALWAYS validate API endpoints
+
+## 🚨 ALERTING STANDARDS
+
+### Alert Configuration
+- ALWAYS define clear alert thresholds
+- ALWAYS include alert context
+- ALWAYS specify severity levels
+- ALWAYS route to appropriate teams
+- ALWAYS include runbook links
+- NEVER create noisy alerts
+
+### Alert Severity Levels
+- **Critical**: Immediate action required
+  - Service down
+  - Data loss risk
+  - Security breach
+- **High**: Urgent attention needed
+  - Performance degradation
+  - Capacity warnings
+- **Medium**: Investigation required
+  - Error rate increase
+  - Unusual patterns
+- **Low**: Informational
+  - Scheduled maintenance
+  - Non-critical warnings
+
+## 📈 METRICS & KPIs
+
+### Application Metrics
+Essential metrics to track:
+- Request rate (requests/second)
+- Error rate (4xx, 5xx responses)
+- Response time (P50, P95, P99)
+- Throughput (transactions/second)
+- Availability (uptime percentage)
+- Apdex score (user satisfaction)
+
+### Business Metrics
+- User registration rate
+- Transaction success rate
+- Feature adoption rate
+- User engagement metrics
+- Revenue/cost metrics
+- SLA compliance
+
+### Technical Metrics
+- Code deployment frequency
+- Mean time to recovery (MTTR)
+- Mean time between failures (MTBF)
+- Change failure rate
+- Lead time for changes
+- Infrastructure cost per transaction
+
+## 🔍 DISTRIBUTED TRACING
+
+### Tracing Standards
+- ALWAYS implement distributed tracing
+- ALWAYS use correlation IDs
+- ALWAYS trace across service boundaries
+- ALWAYS include timing information
+- ALWAYS sample appropriately
+- NEVER trace sensitive data
+
+### Trace Context
+Include in traces:
+- Service name and version
+- Operation/endpoint name
+- Request/response status
+- Timing information
+- Error details
+- Custom attributes
+
+## 🗄️ LOG MANAGEMENT
+
+### Centralized Logging
+- ALWAYS use centralized logging platform
+  - ELK Stack (Elasticsearch, Logstash, Kibana)
+  - AWS CloudWatch
+  - Azure Monitor
+  - Splunk
+- ALWAYS forward logs in real-time
+- ALWAYS maintain log pipeline reliability
+- NEVER lose logs during transmission
+
+### Log Retention
+- ALWAYS define retention policies
+- COMPLY with regulatory requirements
+- TYPICAL retention periods:
+  - Production logs: 90 days
+  - Security logs: 1 year
+  - Audit logs: 7 years
+- ALWAYS archive before deletion
+- ALWAYS consider storage costs
+
+## 🛡️ PROTECTIVE MONITORING
+
+### Security Operations Center (SOC)
+ALWAYS send to SOC:
+- Authentication events
+- Authorization failures
+- Privilege escalations
+- Configuration changes
+- Network anomalies
+- File integrity changes
+- Malware detection events
+- Policy violations
+
+### Compliance Monitoring
+- ALWAYS maintain audit trails
+- ALWAYS log data access
+- ALWAYS track consent changes
+- ALWAYS monitor retention policies
+- ALWAYS log data deletion
+- ALWAYS track compliance violations
+
+## 📊 DASHBOARDS & VISUALIZATION
+
+### Dashboard Best Practices
+- ALWAYS create role-specific dashboards
+- ALWAYS use clear visualizations
+- ALWAYS show trends over time
+- ALWAYS include key metrics
+- ALWAYS enable drill-down capability
+- NEVER overwhelm with information
+
+### Essential Dashboards
+- Service health overview
+- Performance metrics
+- Error tracking
+- Security events
+- Business KPIs
+- Cost monitoring
+- User experience metrics
+
+## ⚡ PERFORMANCE MONITORING
+
+### Response Time Monitoring
+- ALWAYS measure end-to-end latency
+- ALWAYS track database query time
+- ALWAYS monitor external API calls
+- ALWAYS measure render time
+- ALWAYS track cache performance
+- ALWAYS identify bottlenecks
+
+### Capacity Planning
+- ALWAYS track resource trends
+- ALWAYS forecast capacity needs
+- ALWAYS set scaling triggers
+- ALWAYS monitor cost implications
+- ALWAYS plan for peak loads
+- NEVER wait for capacity issues
+
+## ✅ MONITORING QUALITY GATES
+
+### Implementation Checklist
+- ✅ Centralized logging configured
+- ✅ Structured logging implemented
+- ✅ No sensitive data in logs
+- ✅ Monitoring dashboards created
+- ✅ Alerts configured and tested
+- ✅ Distributed tracing enabled
+- ✅ Security events captured
+- ✅ Retention policies defined
+
+## 🚫 MONITORING ANTI-PATTERNS
+
+Never Do:
+- Log sensitive personal data
+- Ignore production logs
+- Create alert fatigue
+- Use unstructured logging
+- Skip log rotation
+- Ignore security events
+- Monitor without alerting
+- Keep logs forever
+- Log everything at debug level
+- Forget about log costs

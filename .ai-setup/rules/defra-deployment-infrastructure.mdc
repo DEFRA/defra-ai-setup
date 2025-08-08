@@ -1,0 +1,208 @@
+---
+trigger: model_decision
+description: DEFRA Deployment & Infrastructure Standards - Container, Kubernetes, and deployment practices
+globs:
+alwaysApply: false
+---
+# DEFRA Deployment & Infrastructure Standards
+
+## 🐳 CONTAINERIZATION STANDARDS
+
+### Container Strategy
+- ALWAYS default to Docker containers for AWS/Azure deployments
+- ALWAYS use containers over traditional VMs
+- ONLY use serverless with formal justification
+- ALWAYS document architectural decisions
+- NEVER create vendor lock-in scenarios
+- ALWAYS enable flexible technology decisions
+
+### Docker Best Practices
+- ALWAYS use Defra base images when available
+- ALWAYS create framework-specific optimized images
+- ALWAYS use Linux containers when possible
+- PREFER .NET Core over .NET Framework
+- ALWAYS build with semantic versioning
+- ALWAYS make images self-contained with all dependencies
+
+### Image Security
+- NEVER run containers as root user
+- ALWAYS sign public images with digital fingerprint
+- ALWAYS verify image source and trust levels
+- ALWAYS scan for vulnerabilities before deployment
+- ALWAYS use distroless or minimal base images
+- NEVER deploy with HIGH/CRITICAL vulnerabilities
+
+### Image Management
+- ALWAYS keep production images immutable
+- ALWAYS use Docker Compose for consistent builds
+- ALWAYS maintain consistent containerization
+- ALWAYS ensure portability across infrastructure
+- NEVER modify images after build
+- ALWAYS use configuration, not modification
+
+## ☸️ KUBERNETES STANDARDS
+
+### Cluster Management
+- ALWAYS use managed Kubernetes services (AKS, EKS)
+- ALWAYS abstract master node maintenance
+- ALWAYS reduce complexity for teams
+- NEVER manually manage control plane
+- ALWAYS keep clusters updated
+- ALWAYS implement cluster monitoring
+
+### Helm Deployment
+- ALWAYS use Helm 3 for packaging
+- ALWAYS utilize Helm Library charts
+- ALWAYS use ConfigMaps for configuration
+- NEVER store sensitive data in ConfigMaps
+- ALWAYS version Helm charts
+- ALWAYS maintain chart documentation
+
+### Resource Management
+- ALWAYS define CPU and memory requests/limits
+- NEVER use "best-effort" pods in production
+- PREFER "guaranteed" or "burstable" pods
+- ALWAYS implement resource quotas per namespace
+- ALWAYS monitor resource utilization
+- ALWAYS conduct performance profiling
+
+### Pod Configuration
+- ALWAYS implement readiness probes at `/healthy`
+- ALWAYS implement liveness probes at `/healthz`
+- ALWAYS define pod priority classes:
+  - High (1000): Critical workloads
+  - Default (600): Standard services  
+  - Low (200): Tolerable downtime
+- ALWAYS apply comprehensive labels
+- NEVER expose unnecessary ports
+
+### Labeling Strategy
+Required labels on all resources:
+- ALWAYS include app name
+- ALWAYS include instance identifier
+- ALWAYS include version
+- ALWAYS include component
+- ALWAYS include environment
+- ALWAYS use consistent label keys
+
+## 🔐 SECRETS MANAGEMENT
+
+### Kubernetes Secrets
+- NEVER use Kubernetes Secrets resource (Base64 only)
+- ALWAYS use cloud identity mechanisms:
+  - AAD Pod Identity for Azure
+  - IAM roles for AWS
+- ALWAYS inject secrets during deployment
+- NEVER hardcode secrets in images
+- ALWAYS rotate secrets regularly
+- ALWAYS audit secret access
+
+### Configuration Management
+- ALWAYS separate config from code
+- ALWAYS use environment-specific configs
+- ALWAYS validate configuration on startup
+- NEVER mix secrets with regular config
+- ALWAYS use ConfigMaps for non-sensitive data
+- ALWAYS version configuration changes
+
+## 🚀 DEPLOYMENT PRACTICES
+
+### CI/CD Pipeline
+- ALWAYS implement automated deployments
+- ALWAYS use infrastructure as code
+- ALWAYS version all deployment artifacts
+- ALWAYS implement rollback capabilities
+- NEVER deploy without health checks
+- ALWAYS maintain deployment audit trail
+
+### Environment Management
+- ALWAYS maintain environment parity
+- ALWAYS use separate namespaces per environment
+- NEVER use production data in lower environments
+- ALWAYS implement environment isolation
+- ALWAYS use consistent naming conventions
+- ALWAYS document environment differences
+
+### Release Management
+- ALWAYS tag releases in version control
+- ALWAYS use semantic versioning
+- ALWAYS include version in source code
+- ALWAYS maintain release notes
+- ALWAYS test rollback procedures
+- NEVER deploy untested releases
+
+## 📊 MONITORING & OBSERVABILITY
+
+### Health Monitoring
+- ALWAYS implement health endpoints
+- ALWAYS monitor application metrics
+- ALWAYS track resource utilization
+- ALWAYS set up alerting thresholds
+- ALWAYS log deployment events
+- ALWAYS maintain uptime targets
+
+### Performance Standards
+- ALWAYS conduct load testing
+- ALWAYS understand resource patterns
+- ALWAYS profile before production
+- ALWAYS monitor response times
+- ALWAYS track error rates
+- ALWAYS measure deployment frequency
+
+### Logging Standards
+- ALWAYS centralize log collection
+- ALWAYS use structured logging
+- ALWAYS correlate logs across services
+- ALWAYS implement log retention policies
+- ALWAYS monitor for anomalies
+- NEVER log sensitive information
+
+## 🛡️ INFRASTRUCTURE SECURITY
+
+### Network Security
+- ALWAYS implement network policies
+- ALWAYS use service mesh for internal communication
+- ALWAYS encrypt traffic with TLS
+- NEVER expose unnecessary services
+- ALWAYS implement ingress controls
+- ALWAYS use Web Application Firewall (WAF)
+
+### Compliance & Governance
+- ALWAYS follow cloud provider best practices
+- ALWAYS implement resource tagging
+- ALWAYS maintain infrastructure documentation
+- ALWAYS conduct security assessments
+- ALWAYS implement cost controls
+- ALWAYS audit infrastructure changes
+
+## ✅ DEPLOYMENT QUALITY GATES
+
+### Pre-Deployment Checks
+- ✅ All tests pass
+- ✅ Security scans complete
+- ✅ Image vulnerabilities resolved
+- ✅ Resource limits defined
+- ✅ Health checks configured
+- ✅ Rollback plan documented
+
+### Post-Deployment Validation
+- ✅ Health endpoints responding
+- ✅ Metrics being collected
+- ✅ Logs flowing correctly
+- ✅ Alerts configured
+- ✅ Performance acceptable
+- ✅ Security policies applied
+
+## 🚫 DEPLOYMENT ANTI-PATTERNS
+
+Never Do:
+- Deploy without health checks
+- Use latest tag in production
+- Share secrets between environments
+- Deploy without resource limits
+- Ignore failed deployments
+- Skip security scanning
+- Use default configurations
+- Deploy without monitoring
+- Manually modify production
+- Deploy on Fridays without rollback plan

@@ -1,0 +1,230 @@
+---
+trigger: model_decision
+description: DEFRA Quality Assurance Standards - Testing, validation, and quality control practices
+globs:
+alwaysApply: false
+---
+# DEFRA Quality Assurance Standards
+
+## 🎯 ACCEPTANCE CRITERIA
+
+### Default Acceptance Standards
+- ALWAYS match design specifications exactly
+- ALWAYS meet WCAG 2.1 Level A and AA accessibility
+- ALWAYS work across all supported browsers
+- ALWAYS implement server-side error validation
+- ALWAYS achieve sub-1 second response for most transactions
+- NEVER cause regression of existing functionality
+
+### Criteria Definition
+- ALWAYS define positive acceptance criteria
+- ALWAYS define negative acceptance criteria
+- ALWAYS specify criteria before development
+- ALWAYS include measurable success metrics
+- ALWAYS validate against user requirements
+- NEVER accept ambiguous criteria
+
+## 🧪 TESTING REQUIREMENTS
+
+### Testing Pyramid Approach
+- ALWAYS prioritize unit tests (base of pyramid)
+- ALWAYS implement API/integration tests (middle)
+- ALWAYS include E2E tests sparingly (top)
+- ALWAYS maintain appropriate test distribution
+- NEVER invert the testing pyramid
+- ALWAYS optimize for fast feedback
+
+### Test Coverage Standards
+- ALWAYS achieve minimum 90% code coverage
+- ALWAYS cover critical business logic 100%
+- ALWAYS test error handling paths
+- ALWAYS include edge cases
+- ALWAYS test security controls
+- NEVER exclude code from coverage without justification
+
+### Testing Types Required
+- ✅ Unit testing for all components
+- ✅ Integration testing for APIs
+- ✅ Exploratory testing per story
+- ✅ Accessibility testing (WCAG 2.1)
+- ✅ Cross-browser compatibility testing
+- ✅ Performance testing with JMeter
+- ✅ Security/penetration testing
+- ✅ High availability testing
+- ✅ User acceptance testing
+
+## 🔧 AUTOMATED TESTING
+
+### Test Automation Stack
+- ALWAYS use established frameworks:
+  - Cucumber for BDD
+  - Webdriver.io for browser automation
+  - Node.js for test scripting
+  - Selenium for web testing
+- ALWAYS maintain test code quality
+- ALWAYS version control test code
+- NEVER skip failing tests
+
+### Continuous Integration
+- ALWAYS run tests on every commit
+- ALWAYS fail builds on test failures
+- ALWAYS maintain test stability
+- ALWAYS fix flaky tests immediately
+- ALWAYS report test metrics
+- NEVER merge with failing tests
+
+### Test Data Management
+- ALWAYS use test data fixtures
+- ALWAYS clean up test data
+- NEVER use production data in tests
+- ALWAYS maintain data privacy
+- ALWAYS version test data schemas
+- ALWAYS isolate test environments
+
+## 📊 QUALITY METRICS
+
+### Key Performance Indicators
+- Test coverage percentage (target: >90%)
+- Defect density per release
+- Test execution time
+- Failed test rate
+- Time to fix failing tests
+- User satisfaction scores
+
+### Quality Tracking
+- ALWAYS track testing gaps
+- ALWAYS monitor outstanding bugs
+- ALWAYS measure test effectiveness
+- ALWAYS report quality trends
+- ALWAYS maintain quality dashboards
+- NEVER ignore declining metrics
+
+## 🐛 DEFECT MANAGEMENT
+
+### Bug Tracking Standards
+- ALWAYS log bugs in Jira
+- ALWAYS include reproduction steps
+- ALWAYS assign severity levels
+- ALWAYS attach relevant evidence
+- ALWAYS link to test cases
+- NEVER close bugs without verification
+
+### Defect Classification
+Priority Levels:
+- P1 Critical: System down, data loss
+- P2 High: Major functionality broken
+- P3 Medium: Minor functionality affected
+- P4 Low: Cosmetic issues
+
+Resolution Requirements:
+- P1: Fix immediately
+- P2: Fix within sprint
+- P3: Fix within release
+- P4: Fix when convenient
+
+## 🔍 CODE REVIEW STANDARDS
+
+### Review Checklist
+- ✅ Code meets acceptance criteria
+- ✅ Tests are comprehensive
+- ✅ No security vulnerabilities
+- ✅ Performance acceptable
+- ✅ Documentation updated
+- ✅ Code follows standards
+- ✅ No code smells
+- ✅ Error handling complete
+
+### Review Process
+- ALWAYS review before merge
+- ALWAYS require approval from peers
+- ALWAYS address all comments
+- ALWAYS verify fixes
+- NEVER approve untested code
+- ALWAYS document decisions
+
+## 📈 PERFORMANCE TESTING
+
+### Performance Standards
+- ALWAYS define performance targets
+- ALWAYS test under realistic load
+- ALWAYS measure response times
+- ALWAYS monitor resource usage
+- ALWAYS test scalability
+- NEVER ignore performance regression
+
+### Load Testing Requirements
+- ALWAYS use JMeter or equivalent
+- ALWAYS simulate concurrent users
+- ALWAYS test API endpoints
+- ALWAYS measure throughput
+- ALWAYS identify bottlenecks
+- ALWAYS document results
+
+## 🔒 SECURITY TESTING
+
+### Security Test Coverage
+- ALWAYS test authentication mechanisms
+- ALWAYS verify authorization controls
+- ALWAYS check input validation
+- ALWAYS test for injection vulnerabilities
+- ALWAYS verify encryption
+- ALWAYS scan for known vulnerabilities
+
+### Penetration Testing
+- ALWAYS conduct for major releases
+- ALWAYS use OWASP testing guide
+- ALWAYS fix critical findings
+- ALWAYS retest after fixes
+- ALWAYS document findings
+- NEVER deploy with critical vulnerabilities
+
+## 📝 DOCUMENTATION REQUIREMENTS
+
+### Test Documentation
+Required Documents:
+- Test plan document
+- Test completion report
+- Automated test suite documentation
+- Performance test report
+- Security test report
+- Accessibility audit report
+
+### Reporting Standards
+- ALWAYS communicate risks daily
+- ALWAYS maintain test evidence
+- ALWAYS provide clear metrics
+- ALWAYS include recommendations
+- ALWAYS track action items
+- ALWAYS archive test results
+
+## ✅ QUALITY GATES
+
+### Build Quality Gates
+- ✅ All unit tests pass
+- ✅ Code coverage >90%
+- ✅ No critical bugs
+- ✅ Security scan passed
+- ✅ Performance targets met
+- ✅ Accessibility compliant
+
+### Release Quality Gates
+- ✅ All acceptance criteria met
+- ✅ User acceptance testing passed
+- ✅ Documentation complete
+- ✅ No P1/P2 defects
+- ✅ Performance validated
+- ✅ Security approved
+
+## 🚫 QA ANTI-PATTERNS
+
+Never Do:
+- Skip testing to meet deadlines
+- Test only happy paths
+- Ignore flaky tests
+- Use production data in tests
+- Approve untested code
+- Hide quality issues
+- Test in production only
+- Ignore accessibility
+- Skip security testing
+- Accept "it works on my machine"

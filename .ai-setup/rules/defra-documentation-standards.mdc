@@ -1,0 +1,295 @@
+---
+trigger: model_decision
+description: DEFRA Documentation Standards - README, code documentation, and technical writing practices
+globs:
+alwaysApply: false
+---
+# DEFRA Documentation Standards
+
+## 📚 README STANDARDS
+
+### Essential README Sections
+ALWAYS include:
+- **Project Title**: Clear, descriptive name
+- **Description**: What the project does and why
+- **Prerequisites**: Required software/tools
+- **Installation**: Step-by-step setup instructions
+- **Usage**: How to run and use the project
+- **Configuration**: Environment variables and settings
+- **Testing**: How to run tests
+- **Deployment**: Deployment instructions
+- **Contributing**: Contribution guidelines
+- **License**: Licensing information
+
+### README Best Practices
+- ALWAYS keep README updated
+- ALWAYS use clear, simple language
+- ALWAYS include code examples
+- ALWAYS provide troubleshooting tips
+- ALWAYS link to detailed documentation
+- NEVER leave placeholder text
+
+## 📝 CODE DOCUMENTATION
+
+### Documentation Philosophy
+- ALWAYS document the "why", not the "how"
+- ALWAYS write self-documenting code first
+- ALWAYS keep documentation next to code
+- ALWAYS update docs with code changes
+- NEVER document obvious code
+- ALWAYS explain complex logic
+
+### Comment Standards
+Good comments explain:
+- Business logic and rules
+- Algorithm choices
+- Performance optimizations
+- Security considerations
+- Workarounds and their reasons
+- Future improvements needed
+
+Avoid comments that:
+- Describe what code does (should be obvious)
+- Are outdated or misleading
+- Are placeholder TODOs without context
+- Duplicate information
+- State the obvious
+
+### Function/Method Documentation
+ALWAYS document:
+- Purpose and behavior
+- Parameters and their types
+- Return values and types
+- Exceptions that may be thrown
+- Side effects
+- Usage examples for complex functions
+
+Example format:
+```javascript
+/**
+ * Calculates the carbon footprint for agricultural land
+ * @param {number} hectares - Land area in hectares
+ * @param {string} cropType - Type of crop grown
+ * @returns {number} CO2 equivalent in tonnes
+ * @throws {Error} If hectares is negative or cropType invalid
+ */
+```
+
+## 🏗️ ARCHITECTURE DOCUMENTATION
+
+### Architecture Decision Records (ADRs)
+ALWAYS document:
+- Decision title and date
+- Status (proposed/accepted/deprecated)
+- Context and problem statement
+- Considered options
+- Decision outcome
+- Consequences (positive and negative)
+
+### System Documentation
+ALWAYS maintain:
+- High-level architecture diagrams
+- Component interaction diagrams
+- Data flow diagrams
+- API documentation
+- Database schemas
+- Security architecture
+
+## 📖 API DOCUMENTATION
+
+### API Documentation Standards
+ALWAYS document:
+- Endpoint URLs and methods
+- Request/response formats
+- Authentication requirements
+- Rate limiting details
+- Error codes and messages
+- Example requests/responses
+
+### OpenAPI/Swagger
+- ALWAYS use OpenAPI specification
+- ALWAYS keep spec synchronized with code
+- ALWAYS include example values
+- ALWAYS document all response codes
+- ALWAYS describe security schemes
+- ALWAYS version your API
+
+## 🔄 PROCESS DOCUMENTATION
+
+### Development Processes
+Document:
+- Development workflow
+- Branch strategy
+- Code review process
+- Testing procedures
+- Release process
+- Rollback procedures
+
+### Operational Runbooks
+ALWAYS include:
+- Service description
+- Architecture overview
+- Monitoring and alerts
+- Common issues and fixes
+- Escalation procedures
+- Disaster recovery steps
+
+## 📋 TECHNICAL SPECIFICATIONS
+
+### Specification Standards
+- ALWAYS use clear structure
+- ALWAYS define scope clearly
+- ALWAYS include acceptance criteria
+- ALWAYS document assumptions
+- ALWAYS list dependencies
+- ALWAYS specify non-functional requirements
+
+### User Stories
+Format:
+```
+As a [user type]
+I want [goal/desire]
+So that [benefit/value]
+
+Acceptance Criteria:
+- Given [context]
+- When [action]
+- Then [outcome]
+```
+
+## 🔒 SECURITY DOCUMENTATION
+
+### Security Requirements
+ALWAYS document:
+- Authentication mechanisms
+- Authorization rules
+- Data encryption standards
+- Security headers required
+- Vulnerability management
+- Incident response procedures
+
+### Privacy Documentation
+- Data protection measures
+- GDPR compliance details
+- Consent mechanisms
+- Data retention policies
+- Subject rights procedures
+- Privacy impact assessments
+
+## 📊 METRICS & REPORTING
+
+### Documentation Metrics
+Track:
+- Documentation coverage
+- Update frequency
+- Review cycles
+- User feedback
+- Documentation debt
+- Time to find information
+
+### Report Templates
+Standard reports should include:
+- Executive summary
+- Detailed findings
+- Recommendations
+- Action items
+- Timeline
+- Success metrics
+
+## 🌐 USER DOCUMENTATION
+
+### User Guide Standards
+- ALWAYS write for the audience
+- ALWAYS use simple language
+- ALWAYS include screenshots
+- ALWAYS provide step-by-step instructions
+- ALWAYS test instructions
+- ALWAYS include FAQs
+
+### Accessibility in Documentation
+- ALWAYS use clear headings
+- ALWAYS provide alt text for images
+- ALWAYS use descriptive link text
+- ALWAYS ensure good contrast
+- ALWAYS use simple language
+- ALWAYS structure content logically
+
+## 🔄 CHANGE DOCUMENTATION
+
+### Change Logs
+ALWAYS maintain:
+- Version number
+- Release date
+- New features
+- Bug fixes
+- Breaking changes
+- Migration instructions
+
+Format (following Keep a Changelog):
+```markdown
+## [1.0.0] - 2024-01-01
+### Added
+- New feature description
+### Changed
+- Modified behavior description
+### Fixed
+- Bug fix description
+### Removed
+- Deprecated feature removal
+```
+
+## 📁 DOCUMENTATION ORGANIZATION
+
+### File Structure
+```
+docs/
+├── README.md           # Project overview
+├── CONTRIBUTING.md     # Contribution guide
+├── architecture/       # Architecture docs
+├── api/               # API documentation
+├── guides/            # User guides
+├── runbooks/          # Operational docs
+└── decisions/         # ADRs
+```
+
+### Naming Conventions
+- ALWAYS use descriptive names
+- ALWAYS use lowercase with hyphens
+- ALWAYS include dates where relevant
+- ALWAYS use consistent formatting
+- NEVER use spaces in filenames
+- ALWAYS use .md extension for markdown
+
+## ✅ DOCUMENTATION QUALITY
+
+### Review Checklist
+- ✅ Accurate and up-to-date
+- ✅ Complete and comprehensive
+- ✅ Clear and concise
+- ✅ Well-structured
+- ✅ Properly formatted
+- ✅ Accessible
+- ✅ Searchable
+- ✅ Version controlled
+
+### Documentation Testing
+- ALWAYS test code examples
+- ALWAYS verify links work
+- ALWAYS check for spelling/grammar
+- ALWAYS validate technical accuracy
+- ALWAYS get peer review
+- ALWAYS test with users
+
+## 🚫 DOCUMENTATION ANTI-PATTERNS
+
+Never:
+- Leave documentation outdated
+- Use jargon without explanation
+- Document obvious code
+- Create write-only documentation
+- Ignore user feedback
+- Skip documentation reviews
+- Use inconsistent formatting
+- Forget about maintenance
+- Document in isolation
+- Assume knowledge level

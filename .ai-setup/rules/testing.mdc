@@ -1,0 +1,205 @@
+---
+trigger: model_decision
+description: Rules for writing tests
+globs:
+alwaysApply: false
+---
+## TDD
+
+### Core Principles
+
+Tests Define Behavior, Not Implementation: Tests should describe what the system does, not how it does it. Focus on
+observable behavior and outcomes.
+
+Confidence Over Coverage: The goal is to have enough tests to confidently refactor and modify code, not to achieve
+arbitrary coverage percentages.
+
+Red-Green-Refactor Cycle: Always write a failing test first, then write the minimum code to pass, then refactor with
+confidence.
+
+BDD Mindset: Think in terms of Given-When-Then scenarios that describe real-world usage and requirements.
+
+Test as Documentation: Tests should serve as living documentation that clearly communicates the system's expected
+behavior.
+
+### Must Have (Critical)
+
+RULE-001: Write a failing test before writing any production code. The test must fail for the right reason,
+demonstrating that it's actually testing the intended behavior.
+
+RULE-002: Each test must follow the Arrange-Act-Assert (AAA) or Given-When-Then (GWT) pattern with clear separation
+between setup, execution, and verification phases.
+
+RULE-003: Test names must clearly describe the scenario being tested using descriptive language (e.g., "should return
+404 when user does not exist" rather than "test user not found").
+
+RULE-004: Tests must be isolated and independent. Each test should be able to run in any order without affecting other
+tests.
+
+RULE-005: Never test implementation details. Focus on public APIs, observable behavior, and outcomes that matter to
+users or consuming code.
+
+RULE-006: Each test should verify one specific behavior or scenario. Multiple assertions are acceptable if they all
+relate to the same behavioral outcome.
+
+### Should Have (Important)
+
+RULE-101: Use descriptive test suite organization with describe blocks that group related functionality and provide
+context.
+
+RULE-102: Implement proper test cleanup using beforeEach, afterEach, or equivalent hooks to ensure consistent test
+state.
+
+RULE-103: Mock external dependencies (databases, APIs, file systems) to ensure tests are fast, reliable, and focused on
+the unit under test.
+
+RULE-104: Write tests at multiple levels (unit, integration, e2e) based on the confidence needed, not to achieve
+coverage targets.
+
+RULE-105: Keep test setup code DRY by extracting common test utilities and factories, but ensure each test remains
+readable and self-contained.
+
+RULE-106: Test edge cases and error scenarios, not just the happy path. Consider boundary conditions, null values, and
+exceptional cases.
+
+### Could Have (Preferred)
+
+RULE-201: Implement custom test matchers or assertions for domain-specific validations to improve test readability.
+
+### Decision Framework
+
+When rules conflict:
+
+- Prioritize test clarity and maintainability over DRY principles
+
+- Choose readability over clever abstractions
+
+- Favor explicit setup over implicit magic
+
+### Key Principles:
+
+Write tests that describe behavior, not implementation details
+
+Focus on confidence to refactor, not coverage percentages
+
+Always follow Red-Green-Refactor: failing test → pass → improve
+
+#### Critical Rules:
+
+Must write a failing test before any production code
+
+Must use Given-When-Then or Arrange-Act-Assert patterns
+
+Always test public behavior, never private methods
+
+Must keep tests isolated and independent
+
+#### Quick Decision Guide:
+
+When in doubt: Ask yourself "Am I testing what the code does (behavior) or how it does it (implementation)?" Always
+choose behavior.
+
+# BDD Testing Rules
+
+_Rules for writing behavior-driven tests that are pragmatic, maintainable, and focused on testing behavior rather than
+implementation details. These rules promote test consolidation, reduce duplication, and ensure tests remain valuable
+documentation of system behavior._
+
+## Context
+
+**Applies to:** All test files, unit tests, integration tests, and end-to-end tests
+**Level:** Tactical - directly impacts daily development practices
+**Audience:** Developers writing or maintaining tests
+
+## Core Principles
+
+1. **Test Behavior, Not Implementation:** Tests should verify what the system does, not how it does it
+2. **DRY Tests:** Eliminate duplicate test code and consolidate similar test scenarios
+3. **Tests as Documentation:** Tests should clearly communicate the expected behavior of the system
+4. **Pragmatic Coverage:** Focus on testing critical behaviors and edge cases, not achieving arbitrary coverage metrics
+
+## Rules
+
+### Must Have (Critical)
+
+- **RULE-001:** Test names must describe the behavior being tested, not the implementation (e.g., "returns user profile
+  when authenticated" not "getUserProfile function works")
+- **RULE-002:** Consolidate tests that verify the same behavior with minor variations into parameterized tests or single
+  comprehensive tests
+- **RULE-003:** Each test must have a clear arrange-act-assert structure with appropriate separation
+- **RULE-004:** Tests must not depend on implementation details like private methods, internal state, or specific data
+  structures
+- **RULE-005:** Avoid testing framework code, libraries, or language features - focus on your application's behavior
+
+### Should Have (Important)
+
+- **RULE-101:** Use descriptive test data that clarifies the test's intent (e.g., "expired-token" instead of "token123")
+- **RULE-102:** Group related tests using describe/context blocks that form readable behavior specifications
+- **RULE-103:** Extract common test setup into well-named helper functions rather than duplicating setup code
+
+## Patterns & Anti-Patterns
+
+### ✅ Do This
+
+```javascript
+// Good: Testing behavior with consolidated tests
+describe('SessionManager', () => {
+  describe('when creating a new session', () => {
+    it('includes session metadata in the response', async () => {
+      const user = {id: 'user-123', email: 'test@example.com'}
+
+      const session = await sessionManager.createSession(user)
+
+      expect(session).toMatchObject({
+        userId: user.id,
+        createdAt: expect.any(Date),
+        expiresAt: expect.any(Date)
+      })
+      expect(session.expiresAt > session.createdAt).toBe(true)
+    })
+  })
+})
+```
+
+### ❌ Don't Do This
+
+```javascript
+// Bad: Multiple tests for the same behavior
+describe('getTimestamp', () => {
+  it('returns a Date object', () => {
+    const result = getTimestamp()
+    expect(result).toBeInstanceOf(Date)
+  })
+
+  it('returns current time', () => {
+    const before = Date.now()
+    const result = getTimestamp()
+    const after = Date.now()
+    expect(result.getTime()).toBeGreaterThanOrEqual(before)
+    expect(result.getTime()).toBeLessThanOrEqual(after)
+  })
+
+  // These should be one test verifying timestamp behavior
+})
+```
+
+---
+
+## TL;DR
+
+**Key Principles:**
+
+- Test what the system does, not how it does it
+- Eliminate duplicate tests by consolidating similar scenarios
+- Write tests that serve as clear behavior documentation
+
+**Critical Rules:**
+
+- Must use behavior-describing test names
+- Must consolidate duplicate test scenarios
+- Must structure tests with clear arrange-act-assert
+- Must not test implementation details
+- Must focus on application behavior, not framework functionality
+
+**Quick Decision Guide:**
+When in doubt: Would a new developer understand the system's expected behavior by reading this test?

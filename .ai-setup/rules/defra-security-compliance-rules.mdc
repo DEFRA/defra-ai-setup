@@ -1,0 +1,200 @@
+---
+trigger: always_on
+description: DEFRA Security & Compliance Standards - Aligned with official DEFRA software development standards
+globs:
+alwaysApply: true
+---
+# DEFRA Security & Compliance Standards
+
+## 🔒 SECURITY PRINCIPLES (DEFRA ALIGNED)
+
+### Core Security Philosophy
+- ALWAYS weave security into everyday working practices
+- NEVER treat security as an afterthought
+- ALWAYS understand attack types and defensive security practices
+- ALWAYS maintain secure development environments
+- NEVER compromise repository security
+- ALWAYS implement security throughout CI/CD pipelines
+
+### OWASP Standards Compliance
+- ALWAYS follow OWASP Secure Coding Practices - Quick Reference Guide v2
+- ALWAYS protect against OWASP Top 10 vulnerabilities
+- NEVER ignore security warnings without justification
+- ALWAYS conduct security testing (manual and automated)
+- ALWAYS implement vulnerability management processes
+
+## 🛡️ AUTHENTICATION & ACCESS CONTROL
+
+### Authentication Requirements
+- NEVER store plaintext passwords
+- ALWAYS use industry-standard encryption (bcrypt/argon2)
+- ALWAYS implement proper session management
+- ALWAYS regenerate session IDs after authentication
+- NEVER trust client-side authentication
+- ALWAYS validate authentication at API and database levels
+
+### Access Control
+- ALWAYS implement authorization checks before resource access
+- NEVER rely solely on client-side access control
+- ALWAYS validate user permissions at API layer
+- NEVER expose direct object references without authorization
+- ALWAYS apply least privilege access principles
+- ALWAYS implement Role-Based Access Control (RBAC) where appropriate
+
+## 🔐 DATA PROTECTION
+
+### Sensitive Data Handling
+- NEVER log Personally Identifiable Information (PII)
+- NEVER log passwords, API keys, tokens, or credentials
+- NEVER store encryption keys with encrypted data
+- ALWAYS encrypt sensitive data at rest and in transit
+- ALWAYS use AES-256 or equivalent encryption
+- ALWAYS implement key rotation policies
+
+### Data Privacy (GDPR Compliance)
+- ALWAYS obtain explicit consent for data processing
+- ALWAYS implement data portability mechanisms
+- ALWAYS provide data access and erasure capabilities
+- NEVER process data without lawful basis
+- ALWAYS implement privacy by design
+- ALWAYS maintain data retention policies
+- NEVER collect unnecessary personal data
+
+## 🐳 CONTAINER SECURITY (DEFRA STANDARDS)
+
+### Docker Security
+- NEVER run containers as root user
+- ALWAYS use Defra base images where available
+- ALWAYS sign public images with digital fingerprint
+- ALWAYS verify image source and trust levels
+- ALWAYS scan containers for vulnerabilities
+- ALWAYS use distroless or minimal base images in production
+- NEVER deploy images with HIGH/CRITICAL vulnerabilities
+
+### Container Configuration
+- ALWAYS make images self-contained with all dependencies
+- ALWAYS keep production images immutable
+- ALWAYS use semantic versioning for image tags
+- ALWAYS implement health checks and monitoring
+- ALWAYS define resource limits and security contexts
+
+## ☸️ KUBERNETES SECURITY
+
+### Secret Management
+- NEVER use Kubernetes Secrets resource (only Base64 encoded)
+- ALWAYS use cloud identity mechanisms (AAD Pod Identity, IAM roles)
+- ALWAYS inject secrets during deployment
+- NEVER store sensitive data in ConfigMaps
+- ALWAYS rotate secrets regularly
+
+### Pod Security
+- ALWAYS define CPU and memory requests/limits
+- NEVER use "best-effort" pods in production
+- ALWAYS implement readiness and liveness probes
+- ALWAYS apply comprehensive security labels
+- ALWAYS use pod security policies/standards
+- NEVER expose unnecessary ports
+
+## 📝 LOGGING & MONITORING (DEFRA STANDARDS)
+
+### Logging Requirements
+- ALWAYS use structured logging (key-value format)
+- ALWAYS follow Elastic Common Schema (ECS) where applicable
+- NEVER log PII, credentials, or sensitive data
+- ALWAYS send protective monitoring events to SOC
+- ALWAYS log authentication attempts and access control changes
+- ALWAYS maintain audit trails for compliance
+
+### Log Levels
+- Development: Debug messages allowed
+- Testing/Staging: Warnings and errors only
+- Production: Errors and critical warnings only
+
+## 🔄 VERSION CONTROL SECURITY
+
+### Repository Security
+- ALWAYS protect master/main branch
+- ALWAYS require approving reviews for merges
+- NEVER commit secrets, API keys, or credentials
+- ALWAYS use .gitignore for sensitive files
+- ALWAYS scan commits for secrets (e.g., Gitleaks)
+- ALWAYS tag releases with semantic versioning
+
+### Code Review Security
+- ALWAYS conduct security-focused code reviews
+- ALWAYS check for injection vulnerabilities
+- ALWAYS verify input validation
+- ALWAYS review authentication/authorization logic
+- NEVER approve code with known security issues
+
+## 🚀 DEPLOYMENT SECURITY
+
+### CI/CD Pipeline Security
+- ALWAYS implement security scanning in CI/CD
+- ALWAYS use static analysis tools (Semgrep, Bandit, ESLint)
+- ALWAYS check dependencies for vulnerabilities
+- ALWAYS require security tests to pass before deployment
+- NEVER deploy with failing security checks
+- ALWAYS use infrastructure as code with security reviews
+
+### Environment Security
+- ALWAYS use separate credentials per environment
+- NEVER use production data in non-production environments
+- ALWAYS implement network segmentation
+- ALWAYS use TLS/HTTPS for all communications
+- NEVER expose internal services to internet
+- ALWAYS implement firewall rules and security groups
+
+## ✅ QUALITY GATES & COMPLIANCE
+
+### Automated Security Checks
+- ✅ Static security analysis must pass (SAST)
+- ✅ Dynamic security testing must pass (DAST)
+- ✅ Dependency vulnerability scan must pass
+- ✅ Container security scan must pass
+- ✅ Secret scanning must pass
+- ✅ Infrastructure security scan must pass
+- ✅ Minimum 90% code coverage with security tests
+
+### Manual Security Reviews
+- ✅ Security architecture review for new features
+- ✅ Threat modeling for high-risk changes
+- ✅ Penetration testing for major releases
+- ✅ Privacy impact assessment for data changes
+- ✅ Accessibility testing (WCAG 2.1 A and AA)
+
+## 🚫 SECURITY ANTI-PATTERNS
+
+Never Do:
+- Use eval() or dynamic code execution
+- Trust user input without validation
+- Implement custom cryptography
+- Use HTTP in production
+- Skip security testing
+- Ignore vulnerability reports
+- Hardcode secrets or credentials
+- Disable security features for convenience
+- Use deprecated algorithms (MD5, SHA1, DES)
+- Make direct database queries with user input
+- Store passwords in plain text or reversible encryption
+- Log sensitive information
+
+## 📊 INCIDENT RESPONSE
+
+### Security Incident Management
+- ALWAYS have an incident response plan
+- ALWAYS log security events for forensics
+- ALWAYS notify relevant parties promptly
+- ALWAYS conduct post-incident reviews
+- ALWAYS update security measures based on lessons learned
+- NEVER hide or ignore security incidents
+
+## 🏛️ COMPLIANCE REQUIREMENTS
+
+### Regulatory Compliance
+- ALWAYS comply with GDPR requirements
+- ALWAYS maintain SOC compliance where required
+- ALWAYS follow government security classifications
+- ALWAYS implement GDS Service Standard requirements
+- ALWAYS maintain audit trails for compliance
+- ALWAYS document security decisions and exceptions

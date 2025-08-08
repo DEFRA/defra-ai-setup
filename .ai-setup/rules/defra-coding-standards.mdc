@@ -1,0 +1,161 @@
+---
+trigger: always_on
+description: DEFRA Common Coding Standards - Core development practices aligned with DEFRA standards
+globs:
+alwaysApply: true
+---
+# DEFRA Common Coding Standards
+
+## 📝 CODING PRINCIPLES
+
+### Master Branch Integrity
+- ALWAYS keep main/master branch in shippable state
+- NEVER make direct changes to master branch
+- ALWAYS work on feature branches
+- ALWAYS ensure master is production-ready
+- ALWAYS maintain complete, tested, and documented code in master
+
+### Code Ownership Philosophy
+- ALWAYS write code thinking of other developers
+- ALWAYS prioritize code clarity and understandability
+- ALWAYS ensure code intent is easily derivable
+- NEVER write code only you can understand
+- ALWAYS consider future maintainers
+
+### Open Source by Default
+- ALWAYS make code open as early as possible
+- ALWAYS promote transparency and collaboration
+- ONLY go private when absolutely necessary
+- ALWAYS include appropriate open-source license
+- DEFAULT to Open Government Licence v3.0
+
+## 🎯 CODE QUALITY STANDARDS
+
+### Code Coverage & Testing
+- ALWAYS achieve minimum 90% unit test coverage
+- ALWAYS implement Continuous Integration for all branches
+- ALWAYS conduct code style checks
+- ALWAYS perform mandatory peer code reviews
+- ALWAYS use quality analysis tools (e.g., SonarCloud)
+- NEVER merge code without passing tests
+
+### Code Readability
+- NEVER use generic variable names (e.g., temp, data, obj)
+- ALWAYS use meaningful, intent-revealing names
+- ALWAYS follow language/framework naming conventions
+- ALWAYS write self-documenting code
+- ALWAYS break code into small, purposeful subroutines
+- ALWAYS maintain consistent code style
+
+### Documentation Standards
+- ALWAYS document the "how" (build/deploy/usage) in README
+- ALWAYS write comments explaining "why", not "how"
+- ALWAYS keep comments concise and relevant
+- ALWAYS update documentation while writing code
+- NEVER leave outdated documentation
+- ALWAYS include examples where helpful
+
+## 🏗️ CODE ORGANIZATION
+
+### Modular Design
+- ALWAYS start with modular/namespaced design
+- APPLY "rule of three" for code abstraction
+- NEVER prematurely optimize for reuse
+- ALWAYS keep functions small and focused
+- ALWAYS separate concerns appropriately
+- ALWAYS maintain clear module boundaries
+
+### Dependency Management
+- ALWAYS check for vulnerabilities in dependencies
+- ALWAYS maintain up-to-date libraries
+- ALWAYS document dependencies clearly
+- NEVER use deprecated packages
+- ALWAYS verify licensing compatibility
+- ALWAYS use dependency scanning tools
+
+## 🔧 DEVELOPMENT PRACTICES
+
+### Version Control
+- ALWAYS use semantic versioning
+- ALWAYS tag releases before deployment
+- ALWAYS include version number in source code
+- ALWAYS maintain clear commit messages
+- ALWAYS follow Git branching strategy
+- NEVER commit directly to production branches
+
+### Code Reviews
+- ALWAYS review for security issues
+- ALWAYS check for code style compliance
+- ALWAYS verify test coverage
+- ALWAYS ensure documentation is updated
+- ALWAYS provide constructive feedback
+- NEVER approve incomplete or untested code
+
+## 🚀 PERFORMANCE STANDARDS
+
+### Response Times
+- ALWAYS target sub-1 second response for most transactions
+- ALWAYS conduct performance testing
+- ALWAYS profile resource utilization
+- ALWAYS optimize critical paths
+- NEVER ignore performance regressions
+- ALWAYS set and monitor performance targets
+
+### Resource Management
+- ALWAYS define resource limits
+- ALWAYS clean up resources properly
+- ALWAYS handle memory efficiently
+- NEVER create memory leaks
+- ALWAYS monitor resource usage
+- ALWAYS optimize database queries
+
+## ✅ QUALITY GATES
+
+### Mandatory Checks
+- ✅ All tests must pass
+- ✅ Code coverage >= 90%
+- ✅ No high/critical security vulnerabilities
+- ✅ Code style checks pass
+- ✅ Peer review approved
+- ✅ Documentation updated
+- ✅ No regression of existing functionality
+
+### Continuous Integration
+- ALWAYS run automated tests on every commit
+- ALWAYS fail fast on errors
+- ALWAYS maintain build stability
+- NEVER merge failing builds
+- ALWAYS fix broken builds immediately
+- ALWAYS monitor CI/CD pipeline health
+
+## 🚫 CODING ANTI-PATTERNS
+
+Never Do:
+- Write unclear or cryptic code
+- Use magic numbers without constants
+- Create god objects or functions
+- Ignore error handling
+- Skip input validation
+- Leave debug code in production
+- Create tight coupling between modules
+- Write untestable code
+- Ignore code warnings
+- Copy-paste code without understanding
+
+## 🌐 BROWSER & ACCESSIBILITY
+
+### Cross-Browser Support
+- ALWAYS test across supported browsers
+- ALWAYS provide graceful degradation
+- ALWAYS follow progressive enhancement
+- NEVER rely on browser-specific features
+- ALWAYS test on different devices
+- ALWAYS consider bandwidth constraints
+
+### Accessibility Standards
+- ALWAYS meet WCAG 2.1 Level A and AA
+- ALWAYS provide alternative text for images
+- ALWAYS ensure keyboard navigation
+- ALWAYS maintain proper color contrast
+- ALWAYS test with screen readers
+- NEVER create accessibility barriers
