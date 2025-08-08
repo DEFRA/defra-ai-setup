@@ -1,6 +1,8 @@
 ---
+trigger: glob
 description: Navigation Standards
 globs: src/config/nunjucks/context/*.js, src/views/layouts/*.njk
+alwaysApply: false
 ---
 # Navigation Standards
 
