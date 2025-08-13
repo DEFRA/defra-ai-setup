@@ -2,6 +2,7 @@
 trigger: model_decision
 description: DEFRA Version Control Standards - Git, branching, and release management practices
 globs:
+applyTo: "**"
 alwaysApply: false
 ---
 # DEFRA Version Control Standards

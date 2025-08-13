@@ -2,6 +2,7 @@
 trigger: glob
 description: GOV.UK Frontend
 globs: *.njk, *.js
+applyTo: "**/*.njk,**/*.js"
 alwaysApply: false
 ---
 # GOV UK Frontend

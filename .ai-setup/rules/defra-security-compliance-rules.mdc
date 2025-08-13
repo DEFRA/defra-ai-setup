@@ -2,6 +2,7 @@
 trigger: always_on
 description: DEFRA Security & Compliance Standards - Aligned with official DEFRA software development standards
 globs:
+applyTo: "**"
 alwaysApply: true
 ---
 # DEFRA Security & Compliance Standards

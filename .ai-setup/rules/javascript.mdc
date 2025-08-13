@@ -2,6 +2,7 @@
 trigger: glob
 description: Javascript in Defra
 globs: *.js
+applyTo: "**/*.js"
 alwaysApply: false
 ---
 # JavaScript in Defra

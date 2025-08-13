@@ -43,3 +43,19 @@ The setup includes:
 - Git repository (the script must be run from a git repo root)
 - Bash shell
 - Internet connection to download resources
+
+## Sync AI Rules
+
+Sync all IDE/tool rule directories:
+
+```bash
+bash .ai-setup/scripts/sync-rules.sh
+```
+
+The script updates:
+
+- Cursor: `.cursor/rules` (.mdc)
+- Windsurf: `.windsurf/rules` (.md)
+- GitHub Copilot: `.github/instructions` (.md)
+
+It also regenerates `CLAUDE.md` from all rules.

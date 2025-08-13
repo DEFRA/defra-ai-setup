@@ -2,6 +2,7 @@
 trigger: model_decision
 description: DEFRA Deployment & Infrastructure Standards - Container, Kubernetes, and deployment practices
 globs:
+applyTo: "**"
 alwaysApply: false
 ---
 # DEFRA Deployment & Infrastructure Standards

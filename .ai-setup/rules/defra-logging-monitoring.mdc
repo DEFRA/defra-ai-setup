@@ -2,6 +2,7 @@
 trigger: model_decision
 description: DEFRA Logging & Monitoring Standards - Observability, logging, and monitoring practices
 globs:
+applyTo: "**"
 alwaysApply: false
 ---
 # DEFRA Logging & Monitoring Standards

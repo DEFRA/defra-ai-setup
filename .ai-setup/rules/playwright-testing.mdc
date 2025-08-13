@@ -2,6 +2,7 @@
 trigger: glob
 description: Playwright Testing
 globs: tests/*.js
+applyTo: "tests/*.js"
 alwaysApply: false
 ---
 # Playwright Testing Rules

@@ -2,6 +2,7 @@
 trigger: glob
 description: API Integration Standards
 globs: src/**/*.js
+applyTo: "src/**/*.js"
 alwaysApply: false
 ---
 # API Integration Standards

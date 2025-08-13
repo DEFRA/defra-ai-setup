@@ -2,6 +2,7 @@
 trigger: model_decision
 description: DEFRA Quality Assurance Standards - Testing, validation, and quality control practices
 globs:
+applyTo: "**"
 alwaysApply: false
 ---
 # DEFRA Quality Assurance Standards

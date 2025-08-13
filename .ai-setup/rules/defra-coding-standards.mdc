@@ -2,6 +2,7 @@
 trigger: always_on
 description: DEFRA Common Coding Standards - Core development practices aligned with DEFRA standards
 globs:
+applyTo: "**"
 alwaysApply: true
 ---
 # DEFRA Common Coding Standards

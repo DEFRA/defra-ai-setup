@@ -2,6 +2,7 @@
 trigger: model_decision
 description: Rules for writing tests
 globs:
+applyTo: "**"
 alwaysApply: false
 ---
 ## TDD

@@ -2,6 +2,7 @@
 trigger: always_on
 description: DEFRA Accessibility Standards - WCAG 2.1 compliance and inclusive design practices
 globs:
+applyTo: "**"
 alwaysApply: true
 ---
 # DEFRA Accessibility Standards

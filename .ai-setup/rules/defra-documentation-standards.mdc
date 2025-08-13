@@ -2,6 +2,7 @@
 trigger: model_decision
 description: DEFRA Documentation Standards - README, code documentation, and technical writing practices
 globs:
+applyTo: "**"
 alwaysApply: false
 ---
 # DEFRA Documentation Standards
